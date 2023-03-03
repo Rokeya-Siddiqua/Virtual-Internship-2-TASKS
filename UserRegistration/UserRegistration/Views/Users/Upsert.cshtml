@@ -1,0 +1,92 @@
+﻿@model UserRegistration.Models.Users
+
+<br />
+<h2 class="text-info">@(Model.Id != 0 ? "Edit" : "Create") Users</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        @if (Model.Id != 0)
+        {
+            <input type="hidden" asp-for="Id" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="UserName"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Password"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="UserFirstName"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="UserFirstName" class="form-control" />
+                <span asp-validation-for="UserFirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="UserLastName"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="UserLastName" class="form-control" />
+                <span asp-validation-for="UserLastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Email"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Phone"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Address"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <button type="submit" class="btn btn-primary form-control">
+                    @(Model.Id != 0 ? "Update" : "Create")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
